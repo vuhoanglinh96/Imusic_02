@@ -18,6 +18,11 @@ gem "rubocop-checkstyle_formatter", require: false
 gem "eslint-rails"
 gem "therubyracer", platforms: :ruby
 gem "config"
+gem "bootstrap-sass", "3.3.7"
+gem "faker", "1.7.3"
+gem "carrierwave", "1.1.0"
+gem "mini_magick", "4.7.0"
+gem "fog", "1.40.0"
 
 group :development, :test do
   gem "sqlite3"
