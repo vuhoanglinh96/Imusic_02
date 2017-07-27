@@ -1,0 +1,33 @@
+<% @track_index.each do |track| %>
+  <div class="pg style-list">
+    <img src="http://i.imgur.com/XaZCBtV.png" alt="">
+    <div class="con">
+      <h2>
+        <%= link_to track.title, "track" %>
+        <h4><%= link_to "Cool", "artist" %></h4>
+      </h2>
+      <span>
+        <audio id="audio-<%= track.id %>" class="audio" preload="true">
+          <source src="<%= track.song %>">
+          <source src="<%= track.song %>">
+          Your browser does not support the audio element.
+        </audio>
+        <div id="wrapper">
+          <div id="audioplayer-<%= track.id %>" class="audioplayer">
+            <button id="playbutton-<%= track.id %>" class="playbutton play">
+            </button>
+            <span id="start-time-<%=track.id%>" class="start-time"></span>
+            <span id="timeline-<%=track.id%>" class="timeline">
+              <div class="music-line"></div>
+              <div id="playhead-<%=track.id%>" class="playhead"></div>
+            </span>
+            <span id="stop-time-<%=track.id%>" class="stop-time"></span>
+          </div>
+        </div>
+      </span>
+      <a href="02.html" class="comm">
+        <i class="fa fa-comments"></i>234 Comments
+      </a>
+    </div>
+  </div>
+<% end %>

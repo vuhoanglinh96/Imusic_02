@@ -1,0 +1,107 @@
+<% provide :title, full_title("Artist") %>
+
+<body onload="initialize()">
+
+  <%= render "shared/swipe" %>
+  <div class="container contant">
+    <div class="row">
+      <div class="site-overlay"></div>
+
+      <div class="col-md-3 mobile-none">
+	      <div class="user-avatar">
+	        <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="#">
+	        <span>Cool</span>
+	      </div>
+	      <div class="user-btn">
+	        <a href="#" class="btn btn-success">Follow</a>
+	      </div>
+
+        <div class="user-friends">
+          <h4>Followers:</h4>
+          <div class="users-group">
+            <% 6.times do |n| %>
+            <a href="02.html" class="user-avatars">
+              <div class="user-go">
+                <i class="fa fa-link"></i>
+              </div>
+              <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+            </a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9 basic vp">
+        <%= render "shared/header" %>
+        <div class="profile-mobile-vis">
+
+          <div class="user-avatar">
+            <img src="img/avatar/ava-big.png" alt="#">
+            <span>Ananev Matvey</span>
+            <div class="user-btn">
+              <a href="#" class="btn btn-success">Add to friend</a>
+              <a href="#" class="btn btn-danger">Sent message</a>
+            </div>
+          </div>
+        </div>
+        <h1>Cool</h1>
+
+        <div class="reviews">
+          <div class="tabbable" id="tabs-89313">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#panel-355954" data-toggle="tab">Tracks</a>
+              </li>
+              <li>
+                <a href="#panel-621042" data-toggle="tab">Comments</a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="panel-355954">
+                <h4>145 Tracks:</h4>
+                  <div class="rev">
+                    <div class="user">
+                      <a href="02.html" class="user-avatars">
+                      <div class="user-go">
+                        <i class="fa fa-link"></i>
+                      </div>
+                      <img src="http://i.imgur.com/XaZCBtV.png" alt=""></a>
+                    </div>
+                    <div class="texts">
+                    <div class="head-rev"><a href="02.html">Oki doki</a>
+                      <span>12.09.2008</span>
+                    </div>
+                    <div class="text-rev">Đặt trình phát nhạc tại đây</div>
+                    </div>
+                  </div>
+                <a href="#" class="more-btn">Load more</a>
+              </div>
+              <div class="tab-pane" id="panel-621042">
+                <h4>145 Comments:</h4>
+                <div class="rev">
+                  <div class="user">
+                    <a href="02.html" class="user-avatars">
+                      <div class="user-go">
+                        <i class="fa fa-link"></i>
+                      </div>
+                    <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="texts">
+                    <div class="head-rev"><a href="02.html">Oki doki</a>
+                      <span>12.09.2008</span>
+                    </div>
+                    <div class="text-rev">
+                      Nice song
+                    </div>
+                  </div>
+                </div>
+                <a href="#" class="more-btn">Load more</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

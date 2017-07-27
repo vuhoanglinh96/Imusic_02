@@ -1,0 +1,32 @@
+<% provide :title, full_title("Home") %>
+
+<body>
+  <%= render "shared/swipe" %>
+  <div class="container contant">
+    <div class="row">
+      <div class="site-overlay"></div>
+      <div class="col-md-12 basic">
+
+        <%= render "shared/header" %>
+        <div class="place-li-cont">
+          <h1>Welcome, Linh</h1>
+          <p class="lead">Let's enjoy the rhythm</p>
+          <ul class="blog-cat">
+            <% @genres.each do |g| %>
+            <li>
+              <a href="#" class="showplace">
+              <i class="fa fa-eye"></i><%= g.name %>
+              </a>
+            </li>
+            <% end %>
+          </ul>
+
+          <div id="audio-players">
+            <%= render "shared/track" %>
+          </div>
+        </div>
+        <a href="#" class="more-btn">Load more</a>
+      </div>
+    </div>
+  </div>
+</body>

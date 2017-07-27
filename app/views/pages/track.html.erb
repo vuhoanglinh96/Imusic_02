@@ -1,0 +1,130 @@
+<% provide :title, full_title("Track") %>
+
+<body onload="initialize()">
+  <%= render "shared/swipe" %>
+  <div class="container contant">
+    <div class="row">
+      <div class="site-overlay"></div>
+      <div class="col-md-3 mobile-none sidebar">
+        <img src="http://i.imgur.com/8Hob1Ge.jpg" class="user-image" alt="#">
+        <div class="address">
+          <h3>Cool</h3>
+          <span>Tracks: 200</span>
+          <span>Follower: 200</span>
+        </div>
+
+        <div class="similar">
+          <h3>More from Cool:</h3>
+          <% 3.times do |n| %>
+            <div>
+              <img src="http://i.imgur.com/XaZCBtV.png" alt="#">
+              <a href="#">All for you</a>
+              <a href="#" class="">Cool</a>
+              <i class="fa fa-thumbs-o-up"></i>34 likes
+            </div>
+          <% end %>
+        </div>
+        <div class="similar">
+          <h3>Related:</h3>
+          <% 3.times do |n| %>
+            <div>
+              <img src="http://i.imgur.com/XaZCBtV.png" alt="#">
+              <a href="#">Wrecking ball</a>
+              <a href="#" class="">Nicky Minai</a>
+              <i class="fa fa-thumbs-o-up"></i>34 likes
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-9 basic">
+        <%= render "shared/header" %>
+        <div class="header-section">
+          <img src="http://i.imgur.com/XaZCBtV.png" alt="">
+          <h1>Aloha</h1>
+          <ul>
+            <li><a href="#">Cool</a></li>
+          </ul>
+        </div>
+        <div class="phone-email">
+          <span><i class="fa fa-phone"></i>
+            <a href="http://matart.ru">Rock & roll</a>
+          </span>
+        </div>
+        <div class="icon-descr-block">
+          <div class="cols">
+            <div class="icons id-orange">
+              <span class="ic"><i class="fa fa-comments-o"></i></span>
+              <span class="num">1034</span>
+            </div>
+            <div class="icons id-green">
+              <span class="ic"><i class="fa fa-users"></i></span>
+              <span class="num">1034</span>
+            </div>
+            <div class="icons id-blue">
+              <span class="ic"><i class="fa fa-globe"></i></span>
+              <span class="num">1034</span>
+            </div>
+          </div>
+          <div class="bubble">
+            <div>Hello guy, this is my first song that I spent numerous
+              times composing. Hope you enjoy this!
+            </div>
+          </div>
+        </div>
+
+        <div class="share-block">
+          <div><a href="#" class="green-button">Share this place</a></div>
+          <div>
+            <div>
+              <span>Total Plays</span>
+              419 total
+            </div>
+          </div>
+        </div>
+
+        <div class="check-in">
+          <div>
+            <a href="03.html">Vlad Mickh</a> likes this
+            <div class="users-group">
+              <% 3.times do |n| %>
+                <a href="03.html" class="user-avatars">
+                  <div class="user-go">
+                    <i class="fa fa-link"></i>
+                  </div>
+                  <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews">
+          <h4>145 Comment:</h4>
+          <% 6.times do |n| %>
+            <div class="rev">
+              <div class="user">
+                <a href="03.html" class="user-avatars">
+                  <div class="user-go">
+                    <i class="fa fa-link"></i>
+                  </div>
+                  <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+                </a>
+              </div>
+              <div class="texts">
+                <div class="head-rev"><a href="03.html">Mattew An</a>
+                  <span>12.09.2008</span>
+                </div>
+                <div class="text-rev">Get a history lesson</div>
+              </div>
+            </div>
+          <% end %>
+          <div class="add-comment">
+            <h4>Add comment</h4>
+            <textarea></textarea>
+            <a href="#" class="btn btn-success">Add comment</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

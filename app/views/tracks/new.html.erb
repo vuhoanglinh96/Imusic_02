@@ -1,0 +1,30 @@
+<% provide :title, full_title("New track") %>
+
+<body>
+<%= render "shared/swipe" %>
+<div class="container contant">
+<div class="row">
+<div class="site-overlay"></div>
+
+<!--content-->
+<div class="col-md-12 basic">
+
+<!--head-->
+<%= render "shared/header" %>
+<div class="row">
+
+<div class="col-md-6 col-md-offset-3">
+  <h3>Upload your track<span></span></h3>
+  <%= render "shared/upload_track",
+    error: "render 'shared/error_messages', object: t.object"  %>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+</div>
+
+</body>
