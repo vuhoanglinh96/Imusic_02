@@ -1,6 +1,8 @@
 lscss_files: 'app/assets/stylesheets/**/*.css.scss'
 
-exclude: 'app/assets/stylesheets/application.css'
+exclude:
+  - 'app/assets/stylesheets/application.css'
+  - 'app/assets/stylesheets/lib/*'
 
 linters:
   BorderZero:
