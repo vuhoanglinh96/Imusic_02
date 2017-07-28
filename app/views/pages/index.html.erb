@@ -1,0 +1,28 @@
+<% provide :title, full_title %>
+
+<body class="promo">
+  <div class="start-descrition option animated fadeInDownBig">
+    <a href="#" class="start-logo">
+      <img src="http://i.imgur.com/8WredZE.png" alt="">
+    </a>
+    <h1><%= t ".welcome" %><span></span></h1>
+    <span><%= t ".discover" %></span>
+    <div class="search-promo">
+      <div class="input-group">
+        <input type="text" class="form-control" aria-label="..."
+        placeholder="Search for tracks or artists">
+        <div class="input-group-btn btn-promo-search">
+          <button type="button" class="btn btn-success">
+            <%= t "search" %></button>
+        </div>
+      </div>
+    </div>
+    <div class="btns">
+      <%= link_to t(".getstart"), "/pages/home", class: "green" %>
+      <button class="white-border login"><%= t ".login" %></button>
+    </div>
+    <%= render "shared/login_form" %>
+  </div>
+  <%= render "animation_image" %>
+  <div class="bgg"></div>
+</body>
