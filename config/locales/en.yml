@@ -10,6 +10,9 @@ en:
       discover: "Discover and share a constantly expanding mix of music from
         emerging and major artists around the world."
       getstart: "Get started"
+      login: "Log in"
+      search: "Search"
+      search_form: "Search for tracks or artists"
 
     home:
       title_info: "Imusic"
@@ -75,8 +78,14 @@ en:
       upload_track: "Upload track"
       upload: "Upload"
 
+    header:
+      search: "search"
+
   tracks:
     new:
       title_info: "Imusic"
       title: "New track"
       upload_your: "Upload your track"
+
+    create:
+      success: "Track uploaded!"
