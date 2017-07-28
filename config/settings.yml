@@ -1,0 +1,8 @@
+validates:
+  genre:
+    name:
+      maximum: 50
+
+  track:
+    title:
+      maximum: 150
