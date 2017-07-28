@@ -1,0 +1,95 @@
+<% provide :title, full_title(t(".title")) %>
+
+<body>
+  <%= render "shared/swipe", track: @track %>
+  <div class="container contant">
+    <div class="row">
+      <div class="site-overlay"></div>
+
+      <div class="col-md-3 mobile-none">
+        <div class="user-avatar">
+          <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="#">
+          <span><%= t ".title" %></span>
+        </div>
+        <div class="user-btn">
+          <a href="#" class="btn btn-success"><%= t ".follow" %></a>
+        </div>
+
+        <div class="user-friends">
+          <h4><%= t ".followers" %></h4>
+          <div class="users-group">
+            <% 6.times do |n| %>
+            <a href="02.html" class="user-avatars">
+              <div class="user-go">
+                <i class="fa fa-link"></i>
+              </div>
+              <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+            </a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9 basic vp">
+        <%= render "shared/header" %>
+        <h1>Cool</h1>
+
+        <div class="reviews">
+          <div class="tabbable" id="tabs-89313">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <a href="#panel-355954" data-toggle="tab"><%= t ".tracks" %></a>
+              </li>
+              <li>
+                <a href="#panel-621042" data-toggle="tab"><%= t ".comments" %></a>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="panel-355954">
+                <h4><%= t ".tracks" %></h4>
+                  <div class="rev">
+                    <div class="user">
+                      <a href="02.html" class="user-avatars">
+                      <div class="user-go">
+                        <i class="fa fa-link"></i>
+                      </div>
+                      <img src="http://i.imgur.com/XaZCBtV.png" alt=""></a>
+                    </div>
+                    <div class="texts">
+                    <div class="head-rev"><a href="#"><%= t ".title" %></a>
+                      <span><%= t ".title" %></span>
+                    </div>
+                    <div class="text-rev"></div>
+                    </div>
+                  </div>
+                <a href="#" class="more-btn"><%= t ".load" %></a>
+              </div>
+              <div class="tab-pane" id="panel-621042">
+                <h4><%= t ".comments" %></h4>
+                <div class="rev">
+                  <div class="user">
+                    <a href="02.html" class="user-avatars">
+                      <div class="user-go">
+                        <i class="fa fa-link"></i>
+                      </div>
+                    <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+                    </a>
+                  </div>
+                  <div class="texts">
+                    <div class="head-rev"><a href="02.html"><%= t ".title" %></a>
+                      <span><%= t ".title" %></span>
+                    </div>
+                    <div class="text-rev">
+                      <%= t ".title" %>
+                    </div>
+                  </div>
+                </div>
+                <a href="#" class="more-btn"><%= t ".load" %></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
