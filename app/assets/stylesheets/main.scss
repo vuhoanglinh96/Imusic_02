@@ -4,8 +4,9 @@
 @import url('http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700');
 @import 'color';
 
+// scss-lint:disable UrlFormat
 body {
-  background: url('../img/start/bg.jpg');
+  background: url('http://i.imgur.com/MLjHGIf.jpg');
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size: 100% 100%;
@@ -13,6 +14,7 @@ body {
 
   .inmap {overflow: hidden; transition: .3s;}
 }
+// scss-lint:enable UrlFormat
 
 a {
   color: $co97c900;

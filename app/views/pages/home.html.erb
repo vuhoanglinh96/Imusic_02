@@ -1,0 +1,31 @@
+<% provide :title, full_title(t(".title")) %>
+
+<body>
+  <%= render "shared/swipe", track: @track %>
+  <div class="container contant">
+    <div class="row">
+      <div class="site-overlay"></div>
+      <div class="col-md-12 basic">
+        <%= render "shared/header" %>
+        <%= render "shared/flash" %>
+        <div class="place-li-cont">
+          <h1><%= t ".welcome" %></h1>
+          <p class="lead"><%= t ".enjoy" %></p>
+          <ul class="blog-cat">
+            <% @genres.each do |g| %>
+              <li>
+                <%= link_to "<i class='fa fa-eye'></i>".html_safe + g.name, "#",
+                  class: "showplace" %>
+              </li>
+            <% end %>
+          </ul>
+
+          <div class="audio-players">
+            <%= render "shared/track", track_index: @track_index %>
+          </div>
+        </div>
+        <%= link_to t(".load"), "#", class: "more-btn" %>
+      </div>
+    </div>
+  </div>
+</body>
