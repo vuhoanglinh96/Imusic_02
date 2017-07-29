@@ -6,3 +6,6 @@ validates:
   track:
     title:
       maximum: 150
+  users:
+    name:
+      maximum: 50

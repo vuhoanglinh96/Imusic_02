@@ -933,8 +933,8 @@ a:hover {
       display: block;
       font-size: 16px;
       font-weight: 300;
-      height: 40px;
-      margin-top: 10px;
+      height: 44px;
+      margin-top: 18px;
       padding: 0 20px;
       width: 100%;
 
@@ -1050,7 +1050,7 @@ a:hover {
 
 .row {
   label {
-    display: block;
+    display: inline;
 
     input,
     textarea,
@@ -1096,13 +1096,13 @@ a:hover {
 .login-form {
   height: 400px;
 
-  a i {
+  .log-btn i {
     padding: 0 10px 0 0;
   }
 }
 
-.login-form a,
-.login-form a:hover {
+.login-form .log-btn,
+.login-form .log-btn:hover {
   border-radius: 3px;
   margin: 10px 30px;
   padding: 10px;
@@ -1189,13 +1189,15 @@ a:hover {
   transition: .3s;
 }
 
+// scss-lint:disable UrlFormat
 .header-section {
-  background: url('../img/c-interior.png') no-repeat;
+  background: url('http://i.imgur.com/VnmnjO3.png') no-repeat;
   background-size: cover;
   margin: 0;
   min-height: 255px;
   overflow: hidden;
   position: relative;
+// // scss-lint:enable UrlFormat
 
   img {
     border-radius: 3px;
