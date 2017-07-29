@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   def show
     @track_index = Track.all
     if valid_page?
-      render "pages/#{params[:page]}"
+      render current_user ? "pages/home" : "pages/index"
     else
       render file: "public/404.html", status: :not_found
     end

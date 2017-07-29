@@ -1,0 +1,128 @@
+<% provide :title, full_title(t(".title")) %>
+
+<body>
+  <%= render "shared/swipe", track: @track %>
+  <div class="container contant">
+    <div class="row">
+      <div class="site-overlay"></div>
+      <div class="col-md-3 mobile-none sidebar">
+        <img src="http://i.imgur.com/8Hob1Ge.jpg" class="user-image" alt="#">
+        <div class="address">
+          <h3><%= t ".title" %></h3>
+          <span><%= t ".tracks" %></span>
+          <span><%= t ".followers" %></span>
+        </div>
+
+        <div class="similar">
+          <h3><%= t ".more" %><%= t ".title" %></h3>
+          <% 3.times do |n| %>
+            <div>
+              <img src="http://i.imgur.com/XaZCBtV.png" alt="#">
+              <a href="#"><%= t ".title" %></a>
+              <a href="#" class=""><%= t ".title" %></a>
+              <i class="fa fa-thumbs-o-up"></i><%= t ".title" %>
+            </div>
+          <% end %>
+        </div>
+        <div class="similar">
+          <h3><%= t ".related" %></h3>
+          <% 3.times do |n| %>
+            <div>
+              <img src="http://i.imgur.com/XaZCBtV.png" alt="#">
+              <a href="#"><%= t ".title" %></a>
+              <a href="#" class=""><%= t ".title" %></a>
+              <i class="fa fa-thumbs-o-up"></i><%= t ".title" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-9 basic">
+        <%= render "shared/header" %>
+        <div class="header-section">
+          <img src="http://i.imgur.com/XaZCBtV.png" alt="">
+          <h1><%= t ".title" %></h1>
+          <ul>
+            <li><a href="#"><%= t ".title" %></a></li>
+          </ul>
+        </div>
+        <div class="phone-email">
+          <span><i class="fa fa-phone"></i>
+            <a href="http://matart.ru"><%= t ".title" %></a>
+          </span>
+        </div>
+        <div class="icon-descr-block">
+          <div class="cols">
+            <div class="icons id-orange">
+              <span class="ic"><i class="fa fa-comments-o"></i></span>
+              <span class="num"><%= t ".title" %></span>
+            </div>
+            <div class="icons id-green">
+              <span class="ic"><i class="fa fa-users"></i></span>
+              <span class="num"><%= t ".title" %></span>
+            </div>
+            <div class="icons id-blue">
+              <span class="ic"><i class="fa fa-globe"></i></span>
+              <span class="num"><%= t ".title" %></span>
+            </div>
+          </div>
+          <div class="bubble">
+            <div><%= t ".title" %></div>
+          </div>
+        </div>
+
+        <div class="share-block">
+          <div><a href="#" class="green-button"><%= t ".share" %></a></div>
+          <div>
+            <div>
+              <span><%= t ".total_play" %></span>
+              <%= t ".totals" %>
+            </div>
+          </div>
+        </div>
+
+        <div class="check-in">
+          <div>
+            <a href="#"><%= t ".title" %></a> <%= t ".likes" %>
+            <div class="users-group">
+              <% 3.times do |n| %>
+                <a href="#" class="user-avatars">
+                  <div class="user-go">
+                    <i class="fa fa-link"></i>
+                  </div>
+                  <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+                </a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
+        <div class="reviews">
+          <h4>145 <%= t ".comments" %></h4>
+          <% 6.times do |n| %>
+            <div class="rev">
+              <div class="user">
+                <a href="#" class="user-avatars">
+                  <div class="user-go">
+                    <i class="fa fa-link"></i>
+                  </div>
+                  <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+                </a>
+              </div>
+              <div class="texts">
+                <div class="head-rev"><a href="#"><%= t ".title" %></a>
+                  <span><%= t ".title" %></span>
+                </div>
+                <div class="text-rev"><%= t ".title" %></div>
+              </div>
+            </div>
+          <% end %>
+          <div class="add-comment">
+            <h4><%= t ".add_comment" %></h4>
+            <textarea></textarea>
+            <a href="#" class="btn btn-success"><%= t ".add_comment" %></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
