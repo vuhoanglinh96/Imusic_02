@@ -15,6 +15,13 @@ class TracksController < ApplicationController
     end
   end
 
+  def show
+    @track = Track.find_by id: params[:id]
+    return if track
+    flash[:danger] = t ".find_failed"
+    redirect_to "/pages/home"
+  end
+
   private
 
   def track_params

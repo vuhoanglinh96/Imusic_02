@@ -1,0 +1,23 @@
+<%= form_for resource, as: resource_name, url: session_path(resource_name) do |f| %>
+  <%= render "shared/error_messages", object: f.object %>
+  <%= f.label :email do %>
+    <%= t ".email" %>
+    <%= f.email_field :email, autofocus: true %>
+  <% end %>
+
+  <%= f.label :password do %>
+    <%= t ".password" %>
+    <%= f.password_field :password, autocomplete: "off" %>
+  <% end %>
+
+  <% if devise_mapping.rememberable? %>
+    <div>
+    <span><%= f.check_box :remember_me %></span>
+    <span><%= f.label :remember_me %></span>
+    </div>
+  <% end %>
+
+  <%= f.submit t(".login"), class: "green-btn-header" %>
+<% end %>
+
+<%= render "users/shared/links" %>

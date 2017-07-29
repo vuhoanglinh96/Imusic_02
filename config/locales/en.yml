@@ -60,7 +60,8 @@ en:
       genre: "Genre:"
       upload_track: "Upload track"
       upload: "Upload"
-      login: "Log in"
+      login: "Login"
+      logout: "Logout"
 
     login_form:
       login: "Log in"
@@ -103,6 +104,7 @@ en:
       likes: "likes this"
       comments: "comments"
       add_comment: "Add comment"
+      find_failed: "Can't find track"
 
   users:
     sessions:
@@ -128,6 +130,7 @@ en:
       tracks: "Tracks"
       comments: "Comments"
       load: "Load more"
+      find_failed: "Can't find user"
 
     registrations:
       new:

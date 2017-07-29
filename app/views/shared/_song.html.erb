@@ -1,0 +1,16 @@
+<audio loop id="audio-<%= track.id %>" class="audio" preload="true">
+  <source src="<%= track.song %>">
+  <%= t ".browser_error" %>
+</audio>
+<div id="wrapper">
+  <div id="audioplayer-<%= track.id %>" class="audioplayer">
+    <button id="playbutton-<%= track.id %>" class="playbutton play">
+    </button>
+    <span id="start-time-<%=track.id%>" class="start-time"></span>
+    <span id="timeline-<%=track.id%>" class="timeline">
+      <div class="music-line"></div>
+      <div id="playhead-<%=track.id%>" class="playhead"></div>
+    </span>
+    <span id="stop-time-<%=track.id%>" class="stop-time"></span>
+  </div>
+</div>

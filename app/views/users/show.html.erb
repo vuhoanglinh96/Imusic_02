@@ -9,7 +9,7 @@
       <div class="col-md-3 mobile-none">
         <div class="user-avatar">
           <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="#">
-          <span><%= t ".title" %></span>
+          <span><%= @user.name %></span>
         </div>
         <div class="user-btn">
           <%= link_to t(".follow"), "#", class: "btn btn-success" %>
@@ -29,7 +29,7 @@
 
       <div class="col-md-9 basic vp">
         <%= render "shared/header" %>
-        <h1><%= t ".title" %></h1>
+        <h1><%= @user.name %></h1>
 
         <div class="reviews">
           <div class="tabbable" id="tabs-89313">
@@ -44,19 +44,23 @@
             <div class="tab-content">
               <div class="tab-pane active" id="panel-355954">
                 <h4><%= t ".tracks" %></h4>
-                  <div class="rev">
-                    <div class="user">
-                      <%= link_to "<div class='user-go'><i class='fa fa-link'></i></div>
-                        <img src='http://i.imgur.com/XaZCBtV.png' alt=''>".html_safe,
-                        "#", class: "user-avatars" %>
+
+                  <% @user.tracks.each do |track| %>
+                    <div class="rev">
+                      <div class="user">
+                        <%= link_to "<img src='http://i.imgur.com/XaZCBtV.png' alt=''>"
+                          .html_safe, users_show_path(id: track.user_id) %>
+                      </div>
+                      <div class="texts">
+                        <div class="head-rev"><%= link_to track.title, "#" %>
+                          <span><%= track.created_at %></span>
+                        </div>
+                        <div class="text-rev">
+                          <%= render "shared/song", track: track %>
+                        </div>
+                      </div>
                     </div>
-                    <div class="texts">
-                    <div class="head-rev"><%= link_to t(".title"), "#" %>
-                      <span><%= t ".title" %></span>
-                    </div>
-                    <div class="text-rev"></div>
-                    </div>
-                  </div>
+                  <% end %>
                 <%= link_to t(".load"), "#", class: "more-btn" %>
               </div>
               <div class="tab-pane" id="panel-621042">
