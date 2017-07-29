@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  devise :database_authenticatable, :registerable,
+    :recoverable, :rememberable, :trackable, :validatable
   has_many :tracks, dependent: :destroy
   has_many :albums, dependent: :destroy
   has_many :likes, dependent: :destroy
@@ -19,4 +21,7 @@ class User < ApplicationRecord
     foreign_key: "followed_id", dependent: :destroy
   has_many :following, through: :active_relationships, source: :followed
   has_many :followers, through: :passive_relationships, source: :follower
+
+  validates :name, presence: true,
+    length: {maximum: Settings.validates.users.name.maximum}
 end

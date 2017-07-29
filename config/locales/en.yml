@@ -81,3 +81,55 @@ en:
       title_info: "Imusic"
       title: "New track"
       upload_your: "Upload your track"
+
+    show:
+      title_info: "Imusic"
+      title: "Track"
+      tracks: "Tracks: "
+      followers: "Followers: "
+      more: "More from "
+      related: "Related:"
+      share: "Share this song"
+      total_play: "Total Plays"
+      totals: "totals"
+      likes: "likes this"
+      comments: "comments"
+      add_comment: "Add comment"
+
+  users:
+    sessions:
+      new:
+        title_info: "Imusic"
+        title: "Login"
+        login: "Login"
+
+      create:
+        success: "Sign up success!"
+
+
+      form:
+        email: "Email"
+        password: "Password"
+        login: "Login"
+
+    show:
+      title_info: "Imusic"
+      title: "Artist"
+      follow: "Follow"
+      followers: "Followers:"
+      tracks: "Tracks"
+      comments: "Comments"
+      load: "Load more"
+
+    registrations:
+      new:
+        title_info: "Imusic"
+        title: "Sign up"
+        login: "Sign up"
+
+      form:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Password Confirmation"
+        sign_up: "Sign up"

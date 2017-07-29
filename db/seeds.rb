@@ -17,4 +17,10 @@ Genre.create!(name: "Blues")
 Genre.create!(name: "Cover")
 Genre.create!(name: "Ballad")
 
-User.create!
+10.times do |n|
+  User.create!(
+    name: "User #{n}",
+    email: "user#{n}@gmail.com",
+    password: "123456"
+  )
+end
