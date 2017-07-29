@@ -36,7 +36,8 @@ function populateAudioList() {
     audioList.push(
       new AudioObject(audioElements[i-1], 0)
     );
-    audioList[i-1].bindAudioPlayer(i);
+    num = audioList[i-1].id.replace("audio-", "")
+    audioList[i-1].bindAudioPlayer(num);
     audioList[i-1].addEventListeners();
   }
 }
@@ -129,16 +130,17 @@ function printTime() {
   var audioElements = document.getElementsByClassName("audio");
   for (i = 1; i <= audioElements.length; i++) {
     var ao = audioList[i-1];
+    var num = audioList[i-1].id.replace("audio-", "");
     duration = parseInt(ao.audio.duration);
     var d = moment.duration(duration, 'seconds');
     var hours = Math.floor(d.asHours());
     var mins = Math.floor(d.asMinutes()) - hours * 60;
     var secs = Math.floor(d.asSeconds()) - hours * 3600 - mins * 60;
     if (hours != 0) {
-      document.getElementById("stop-time-" + i).innerHTML = hours + ':' + mins + ':' + secs;
+      document.getElementById("stop-time-" + num).innerHTML = hours + ':' + mins + ':' + secs;
     }
     else
-      document.getElementById("stop-time-" + i).innerHTML = mins + ':' + secs;
+      document.getElementById("stop-time-" + num).innerHTML = mins + ':' + secs;
   }
 }
 
@@ -146,16 +148,17 @@ function currentPlay() {
   var audioElements = document.getElementsByClassName("audio");
   for (i = 1; i <= audioElements.length; i++) {
     var ao = audioList[i-1];
+    var num = audioList[i-1].id.replace("audio-", "");
     duration = parseInt(ao.audio.currentTime);
     var d = moment.duration(duration, 'seconds');
     var hours = Math.floor(d.asHours());
     var mins = Math.floor(d.asMinutes()) - hours * 60;
     var secs = Math.floor(d.asSeconds()) - hours * 3600 - mins * 60;
     if (hours != 0) {
-      document.getElementById("start-time-" + i).innerHTML = hours + ':' + mins + ':' + secs;
+      document.getElementById("start-time-" + num).innerHTML = hours + ':' + mins + ':' + secs;
     }
     else
-      document.getElementById("start-time-" + i).innerHTML = mins + ':' + secs;
+      document.getElementById("start-time-" + num).innerHTML = mins + ':' + secs;
   }
 }
 

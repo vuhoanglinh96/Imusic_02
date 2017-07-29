@@ -11,7 +11,6 @@ gem "sass-rails", "~> 5.0"
 gem "uglifier", ">= 1.3.0"
 gem "coffee-rails", "~> 4.2"
 gem "jquery-rails"
-gem "turbolinks", "~> 5"
 gem "jbuilder", "~> 2.5"
 gem "rubocop", require: false
 gem "rubocop-checkstyle_formatter", require: false
@@ -24,7 +23,7 @@ gem "carrierwave", "1.1.0"
 gem "mini_magick", "4.7.0"
 gem "fog", "1.40.0"
 gem "momentjs-rails"
-gem "jquery-turbolinks"
+gem "devise"
 
 group :development, :test do
   gem "sqlite3"
