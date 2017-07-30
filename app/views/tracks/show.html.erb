@@ -14,24 +14,24 @@
         </div>
 
         <div class="similar">
-          <h3><%= t ".more" %><%= t ".title" %></h3>
-          <% 3.times do |n| %>
+          <h3><%= t ".more" %><%= @track.uploader_name %></h3>
+          <% @related.each do |r| %>
             <div>
               <img src="http://i.imgur.com/XaZCBtV.png" alt="#">
-              <%= link_to t(".title"), "#" %>
-              <%= link_to t(".title"), "#" %>
-              <i class="fa fa-thumbs-o-up"></i><%= t ".title" %>
+              <%= link_to r.title, track_path(id: r.id) %>
+              <%= link_to r.uploader_name, users_show_path(id: r.user_id) %>
+              <i class="fa fa-heart-o"></i><%= t ".title" %>
             </div>
           <% end %>
         </div>
         <div class="similar">
           <h3><%= t ".related" %></h3>
-          <% 3.times do |n| %>
+          <% @track_artist.each do |ta| %>
             <div>
               <img src="http://i.imgur.com/XaZCBtV.png" alt="#">
-              <%= link_to t(".title"), "#" %>
-              <%= link_to t(".title"), "#" %>
-              <i class="fa fa-thumbs-o-up"></i><%= t ".title" %>
+              <%= link_to ta.title, track_path(id: ta.id) %>
+              <%= link_to ta.uploader_name, users_show_path(id: ta.user_id) %>
+              <i class="fa fa-heart-o"></i><%= t ".title" %>
             </div>
           <% end %>
         </div>
@@ -40,44 +40,46 @@
         <%= render "shared/header" %>
         <div class="header-section">
           <img src="http://i.imgur.com/XaZCBtV.png" alt="">
-          <h1><%= t ".title" %></h1>
+          <h1><%= @track.title %></h1>
           <ul>
-            <li><%= link_to t(".title"), "#" %></li>
+            <li>
+              <%= link_to @track.uploader_name,
+                users_show_path(id: @track.user_id) %>
+            </li>
           </ul>
+          <span>
+            <%= render "shared/song", track: @track %>
+          </span>
         </div>
         <div class="phone-email">
-          <span><i class="fa fa-phone"></i>
-            <%= link_to t(".title"), "#" %>
+          <span><i class="fa fa-music"></i>
+            <%= link_to @track.genre_name, "#" %>
           </span>
         </div>
         <div class="icon-descr-block">
           <div class="cols">
             <div class="icons id-orange">
-              <span class="ic"><i class="fa fa-comments-o"></i></span>
-              <span class="num"><%= t ".title" %></span>
+              <span class="ic"><i class="fa fa-heart"></i></span>
+              <span id="num-like-<%=@track.id%>" class="num"><%= t ".title" %></span>
             </div>
             <div class="icons id-green">
-              <span class="ic"><i class="fa fa-users"></i></span>
-              <span class="num"><%= t ".title" %></span>
+              <span class="ic"><i class="fa fa-comments-o"></i></span>
+              <span id="num-comment-<%=@track.id%>" class="num"><%= t ".title" %></span>
             </div>
             <div class="icons id-blue">
-              <span class="ic"><i class="fa fa-globe"></i></span>
-              <span class="num"><%= t ".title" %></span>
+              <span class="ic"><i class="fa fa-headphones"></i></span>
+              <span id="num-view-<%=@track.id%>" class="num num-view" data-remote="true">
+                <%= @track.view  %>
+              </span>
             </div>
           </div>
           <div class="bubble">
-            <div><%= t ".title" %></div>
+            <div><%= @track.description %></div>
           </div>
         </div>
 
         <div class="share-block">
           <div><%= link_to t(".share"), "#", class: "green-button" %></div>
-          <div>
-            <div>
-              <span><%= t ".total_play" %></span>
-              <%= t ".totals" %>
-            </div>
-          </div>
         </div>
 
         <div class="check-in">

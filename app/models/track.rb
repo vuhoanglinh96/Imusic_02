@@ -16,4 +16,22 @@ class Track < ApplicationRecord
   validates :user_id, presence: true, allow_nil: true
   validates :genre, presence: true
   validates :image, presence: true, allow_nil: true
+
+  delegate :name, to: :uploader, prefix: :uploader, allow_nil: true
+  delegate :name, to: :genre, prefix: :genre, allow_nil: true
+
+  def update_view
+    self.view = view + 1
+    save
+  end
+
+  def related
+    Track.where("genre_id IN (?) AND id NOT IN (?)",
+      genre_id, id).order("RANDOM()").take 3
+  end
+
+  def track_artist
+    Track.where("user_id IN (?) AND id NOT IN (?)",
+      user_id, id).order("RANDOM()").take 3
+  end
 end

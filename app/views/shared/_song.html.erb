@@ -2,15 +2,19 @@
   <source src="<%= track.song %>">
   <%= t ".browser_error" %>
 </audio>
-<div id="wrapper">
+<div class="wrapper">
   <div id="audioplayer-<%= track.id %>" class="audioplayer">
     <button id="playbutton-<%= track.id %>" class="playbutton play">
     </button>
     <span id="start-time-<%=track.id%>" class="start-time"></span>
-    <span id="timeline-<%=track.id%>" class="timeline">
-      <div class="music-line"></div>
+    <div id="timeline-<%=track.id%>" class="timeline">
       <div id="playhead-<%=track.id%>" class="playhead"></div>
-    </span>
+      <div class="music-line"></div>
+    </div>
     <span id="stop-time-<%=track.id%>" class="stop-time"></span>
+    <%= form_for track, remote: true do |t| %>
+      <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+      <%= t.submit track.view, class: "hidden view", id: "view-#{track.id}" %>
+    <% end %>
   </div>
 </div>

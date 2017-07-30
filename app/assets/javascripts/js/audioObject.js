@@ -18,7 +18,10 @@ AudioObject.prototype.bindAudioPlayer = function (num) {
   this.playbutton = document.getElementById("playbutton-" + num);
   this.timeline = document.getElementById("timeline-" + num);
   this.playhead = document.getElementById("playhead-" + num);
-  this.timelineWidth = this.timeline.offsetWidth - this.playhead.offsetWidth
+  this.view = parseInt(
+    document.getElementById("view-" + num).getAttribute("data-value")
+  );
+  this.timelineWidth = this.timeline.offsetWidth - this.playhead.offsetWidth;
 }
 
 AudioObject.prototype.addEventListeners = function () {
@@ -66,15 +69,23 @@ AudioObject.prototype.play = function () {
     playingAudio = null;
     this.audio.pause();
     changeClass(this.playbutton, "playbutton play");
+    clearTimeout(myVar);
   }
   else {
     if (playingAudio != null) {
       playingAudio.audio.pause();
       changeClass(playingAudio.playbutton, "playbutton play");
+      clearTimeout(myVar);
     }
     this.audio.play();
     playingAudio = this;
     changeClass(this.playbutton, "playbutton pause");
+    var ao = audioList[getAudioListIndex(this.id)];
+    var time = ao.duration * 1000;
+    myVar = setTimeout(function(){
+      id = parseInt(ao.id.replace("audio-", ""));
+      document.getElementById("edit_track_" + id).submit();
+    }, time);
   }
 }
 
@@ -170,8 +181,12 @@ function getAudioListIndex(id) {
   return componentDict[id];
 }
 
-function clickPercent(e, timeline, timelineWidth) {
-  return (e.pageX - timeline.offsetLeft) / timelineWidth;
+function clickPercent(event, timeline, timelineWidth) {
+  return (event.clientX - getPosition(timeline)) / timelineWidth;
+}
+
+function getPosition(el) {
+  return el.getBoundingClientRect().left;
 }
 
 function theDOMHasLoaded(e) {

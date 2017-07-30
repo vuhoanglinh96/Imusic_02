@@ -4,7 +4,7 @@
     <div class="con">
       <h2>
         <%= link_to track.title, track_path(id: track.id) %>
-        <h4><%= link_to track.uploader.name, users_show_path(id: track.user_id) %></h4>
+        <h4><%= link_to track.uploader_name, users_show_path(id: track.user_id) %></h4>
       </h2>
       <span>
         <%= render "shared/song", track: track %>

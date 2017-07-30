@@ -1,0 +1,4 @@
+$(document).ready(function () {
+  $(".num-view").html("<%= j render('tracks/update') %>");
+  $(".view").attr("value", "<%= @track.view %>")
+})

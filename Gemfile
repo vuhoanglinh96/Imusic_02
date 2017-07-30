@@ -24,6 +24,7 @@ gem "mini_magick", "4.7.0"
 gem "fog", "1.40.0"
 gem "momentjs-rails"
 gem "devise"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "sqlite3"
