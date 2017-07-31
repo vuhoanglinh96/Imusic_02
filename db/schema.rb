@@ -95,9 +95,9 @@ ActiveRecord::Schema.define(version: 20170727091042) do
     t.string   "song"
     t.string   "description"
     t.string   "image"
-    t.integer  "view"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.integer  "view",        default: 0
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["genre_id"], name: "index_tracks_on_genre_id"
     t.index ["title"], name: "index_tracks_on_title"
     t.index ["user_id"], name: "index_tracks_on_user_id"

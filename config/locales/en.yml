@@ -106,6 +106,9 @@ en:
       add_comment: "Add comment"
       find_failed: "Can't find track"
 
+    update:
+      find_failed: "Can't find track"
+
   users:
     sessions:
       new:

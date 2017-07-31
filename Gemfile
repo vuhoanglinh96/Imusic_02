@@ -26,6 +26,7 @@ gem "fog", "1.40.0"
 gem "momentjs-rails"
 gem "jquery-turbolinks"
 gem "devise"
+gem "font-awesome-rails"
 
 group :development, :test do
   gem "sqlite3"

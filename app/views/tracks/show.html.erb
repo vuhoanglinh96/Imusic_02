@@ -8,30 +8,30 @@
       <div class="col-md-3 mobile-none sidebar">
         <img src="http://i.imgur.com/8Hob1Ge.jpg" class="user-image" alt="#">
         <div class="address">
-          <h3><%= t ".title" %></h3>
-          <span><%= t ".tracks" %></span>
-          <span><%= t ".followers" %></span>
+          <h3><%= @track.uploader_name %></h3>
         </div>
 
         <div class="similar">
-          <h3><%= t ".more" %><%= t ".title" %></h3>
-          <% 3.times do |n| %>
+          <h3><%= t ".more" %><%= @track.uploader_name %></h3>
+          <% @track_support.track_artist.each do |r| %>
             <div>
               <img src="http://i.imgur.com/XaZCBtV.png" alt="#">
-              <%= link_to t(".title"), "#", method: :get %>
-              <%= link_to t(".title"), "#", method: :get %>
-              <i class="fa fa-thumbs-o-up"></i><%= t ".title" %>
+              <%= link_to r.title, track_path(id: r.id), method: :get %>
+              <%= link_to r.uploader_name, users_show_path(id: r.user_id),
+                method: :get %>
+              <i class="fa fa-heart-o"></i><%= t ".title" %>
             </div>
           <% end %>
         </div>
         <div class="similar">
           <h3><%= t ".related" %></h3>
-          <% 3.times do |n| %>
+          <% @track_support.related.each do |ta| %>
             <div>
               <img src="http://i.imgur.com/XaZCBtV.png" alt="#">
-              <%= link_to t(".title"), "#", method: :get %>
-              <%= link_to t(".title"), "#", method: :get %>
-              <i class="fa fa-thumbs-o-up"></i><%= t ".title" %>
+              <%= link_to ta.title, track_path(id: ta.id), method: :get %>
+              <%= link_to ta.uploader_name,
+                users_show_path(id: ta.user_id), method: :get %>
+              <i class="fa fa-heart-o"></i><%= t ".title" %>
             </div>
           <% end %>
         </div>
@@ -40,64 +40,56 @@
         <%= render "shared/header" %>
         <div class="header-section">
           <img src="http://i.imgur.com/XaZCBtV.png" alt="">
-          <h1><%= t ".title" %></h1>
+          <h1><%= @track.title %></h1>
           <ul>
-            <li><%= link_to t(".title"), "#", method: :get %></li>
+            <li>
+              <%= link_to @track.uploader_name,
+                users_show_path(id: @track.user_id), method: :get %>
+            </li>
           </ul>
+          <span>
+            <%= render "shared/song", track: @track %>
+          </span>
         </div>
         <div class="phone-email">
-          <span><i class="fa fa-phone"></i>
-            <%= link_to t(".title"), "#", method: :get %>
+          <span><i class="fa fa-music"></i>
+            <%= link_to @track.genre_name, "#", method: :get %>
           </span>
         </div>
         <div class="icon-descr-block">
           <div class="cols">
             <div class="icons id-orange">
-              <span class="ic"><i class="fa fa-comments-o"></i></span>
-              <span class="num"><%= t ".title" %></span>
+              <span class="ic"><i class="fa fa-heart"></i></span>
+              <span id="num-like-<%=@track.id%>" class="num num-like">
+                <%= @track.likes.count  %>
+              </span>
             </div>
             <div class="icons id-green">
-              <span class="ic"><i class="fa fa-users"></i></span>
-              <span class="num"><%= t ".title" %></span>
+              <span class="ic"><i class="fa fa-comments-o"></i></span>
+              <span id="num-comment-<%=@track.id%>" class="num num-comment">
+                <%= @track.comments.count  %>
+              </span>
             </div>
             <div class="icons id-blue">
-              <span class="ic"><i class="fa fa-globe"></i></span>
-              <span class="num"><%= t ".title" %></span>
+              <span class="ic"><i class="fa fa-headphones"></i></span>
+              <span id="num-view-<%=@track.id%>" class="num num-view" data-remote="true">
+                <%= @track.view  %>
+              </span>
             </div>
           </div>
           <div class="bubble">
-            <div><%= t ".title" %></div>
+            <div><%= @track.description %></div>
           </div>
         </div>
 
         <div class="share-block">
-          <div><%= link_to t(".share"), "#",
-            class: "green-button", method: :get %></div>
-          <div>
-            <div>
-              <span><%= t ".total_play" %></span>
-              <%= t ".totals" %>
-            </div>
-          </div>
-        </div>
-
-        <div class="check-in">
-          <div>
-            <%= link_to t(".title"), "#", method: :get %> <%= t ".likes" %>
-            <div class="users-group">
-              <% 3.times do |n| %>
-                <%= link_to "#", class: "user-avatars", method: :get do %>
-                  <div class="user-go"><i class="fa fa-link"></i></div>
-                  <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
-                <% end %>
-              <% end %>
-            </div>
-          </div>
+          <div><%= link_to t(".share"), "#", class: "green-button",
+            method: :get %></div>
         </div>
 
         <div class="reviews">
           <h4><%= t ".comments" %></h4>
-          <% 6.times do |n| %>
+          <% @track.comments.each do |n| %>
             <div class="rev">
               <div class="user">
                 <%= link_to "#", class: "user-avatars", method: :get do %>

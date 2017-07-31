@@ -5,10 +5,6 @@ class Supports::UserSupport
     @user = user
   end
 
-  def genres
-    Genre.all
-  end
-
   def genres_map
     Genre.new
   end

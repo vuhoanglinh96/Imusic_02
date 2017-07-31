@@ -20,9 +20,9 @@
           <h4><%= t ".followers" %></h4>
           <div class="users-group">
             <% 6.times do |n| %>
-              <%= link_to "#", class: "user-avatars", method: :get do %>
-                <div class="user-go"><i class="fa fa-link"></i></div>
-                <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+              <%= link_to "<div class='user-go'><i class='fa fa-link'></i></div>
+                <img src='http://i.imgur.com/8Hob1Ge.jpg' alt=''>".html_safe, "#",
+                class: "user-avatars", method: :get %>
             <% end %>
           </div>
         </div>
