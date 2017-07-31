@@ -1,12 +1,19 @@
 <div class="menu-btn">&#9776;</div>
 <nav class="pushy pushy-left">
-  <div class="profile">
-    <div class="avatar"><img src="http://i.imgur.com/8Hob1Ge.jpg" alt="#">
-      <span>5</span>
+  <% if current_user %>
+    <div class="profile">
+      <div class="avatar"><img src="http://i.imgur.com/8Hob1Ge.jpg" alt="#">
+      </div>
+      <h3><%= link_to current_user.name, users_show_path(id: current_user.id) %></h3>
+      <%= link_to t(".logout"), destroy_user_session_path , method: :delete,
+        class: "log-btn" %>
     </div>
-    <h3><%= link_to t(".not_login"), "#" %></h3>
-    <button class="log-btn login"><%= t ".login" %></button>
-  </div>
+  <% else %>
+    <div class="profile">
+      <h3><%= link_to t(".not_login"), "#" %></h3>
+        <%= link_to t(".login"), "#", class: "log-btn login" %>
+    </div>
+  <% end %>
   <ul class="side-menu">
     <li><%= link_to t(".index_page").html_safe, "/" %></li>
     <li>
@@ -16,6 +23,7 @@
   </ul>
 </nav>
 
+<% if current_user %>
 <div class="add-place none pl">
   <div class="place-form">
     <i class="fa fa-times close-window close"></i>
@@ -36,18 +44,19 @@
         <%= t.select :genre_id, @genres_map.genres_collect %>
       <% end %>
 
-      <div class="upload-btn upload-btn-notform  btn btn-default">
+      <div class="upload-btn upload-btn-notform btn btn-default">
         <%= t ".upload_track" %>
       </div>
       <%= t.label :song, class: "file-upload" do %>
         <%= t.file_field :song, class: "hidden-file selectedFile" %>
       <% end %>
 
-      <%= t.hidden_field :user_id, value: 1 %>
+      <%= t.hidden_field :user_id, value: current_user.id %>
 
       <%= t.submit t(".upload"), class: "green-btn-header" %>
     <% end %>
   </div>
 </div>
+<% end %>
 
 <%= render("shared/login_form") %>

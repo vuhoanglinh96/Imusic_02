@@ -1,8 +1,9 @@
 class TracksController < ApplicationController
   attr_reader :track
 
+  before_action :init
+
   def new
-    @genres_map = Genre.new
     @track ||= Track.new
   end
 
@@ -16,9 +17,20 @@ class TracksController < ApplicationController
     end
   end
 
+  def show
+    @track = Track.find_by id: params[:id]
+    return if track
+    flash[:danger] = t ".find_failed"
+    redirect_to "/pages/home"
+  end
+
   private
 
   def track_params
     params.require(:track).permit :title, :description, :genre_id, :song, :user_id
+  end
+
+  def init
+    @genres_map = Genre.new
   end
 end
