@@ -34,4 +34,8 @@ class Track < ApplicationRecord
     Track.where("user_id IN (?) AND id NOT IN (?)",
       user_id, id).order("RANDOM()").take 3
   end
+
+  def top_listen
+    Track.all.order(view: :desc)
+  end
 end

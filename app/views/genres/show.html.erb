@@ -9,7 +9,7 @@
         <%= render "shared/header" %>
         <%= render "shared/flash" %>
         <div class="place-li-cont">
-          <h1><%= t ".welcome" %> <%= current_user.name %></h1>
+          <h1><%= t ".category" %> <%= @genre.name %></h1>
           <p class="lead"><%= t ".enjoy" %></p>
           <ul class="blog-cat">
             <% @genres.each do |g| %>
@@ -21,7 +21,7 @@
           </ul>
 
           <div class="audio-players">
-            <%= render "shared/track", track_index: @track_index %>
+            <%= render "shared/track", track_index: @tracks_genre %>
           </div>
         </div>
         <%= link_to t(".load"), "#", class: "more-btn" %>

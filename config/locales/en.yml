@@ -53,7 +53,7 @@ en:
       not_login: "You're not login"
       index_page: "<i class='fa fa-list'></i>Index page"
       upload_track_i: "<i class='fa fa-list'></i>Upload track"
-      artist: "<i class='fa fa-list'></i>Artist"
+      top_listen: "<i class='fa fa-list'></i>Top Listen"
       upload_your: "Upload your track"
       title: "Title:"
       description: "Description:"
@@ -147,3 +147,19 @@ en:
         password: "Password"
         password_confirmation: "Password Confirmation"
         sign_up: "Sign up"
+
+  genres:
+    show:
+      title_info: "Imusic"
+      title: "Category"
+      category: "Category:"
+      enjoy: "Let's enjoy the rhythm"
+      load: "Load more"
+
+  types:
+    top_listen:
+      title_info: "Imusic"
+      title: "Top Listen"
+      top_listen: "Top listen"
+      enjoy: "Let's enjoy the rhythm"
+      load: "Load more"

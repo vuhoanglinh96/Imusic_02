@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root "pages#show", page: "index"
 
   get "/pages/:page" => "pages#show"
+  get "/types/:type" => "types#show"
 
   resources :tracks, except: [:index, :edit, :destroy]
   resources :users, only: :show
+  resources :genres, only: :show
 end

@@ -3,4 +3,8 @@ class Genre < ApplicationRecord
 
   validates :name, presence: :true,
     length: {maximum: Settings.validates.track.title.maximum}
+
+  def tracks_genre
+    Track.where genre_id: id
+  end
 end
