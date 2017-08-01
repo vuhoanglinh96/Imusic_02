@@ -1,28 +1,20 @@
 <%= form_for track do |t| %>
   <%= render "shared/error_messages", object: t.object %>
-  <%= t.label :title do %>
-    <%= t ".title" %>
-    <%= t.text_area :title %>
-  <% end %>
+  <%= t.label :title %>
+  <%= t.text_area :title %>
 
-  <%= t.label :description do %>
-    <%= t ".description" %>
-    <%= t.text_area :description %>
-  <% end %>
+  <%= t.label :description %>
+  <%= t.text_area :description %>
 
-  <%= t.label :genre do %>
-    <%= t ".genre" %>
-    <%= t.select :genre_id, @genres_map.genres_collect %>
-  <% end %>
+  <%= t.label :genre %>
+  <%= t.select :genre_id, genres_map.genres_collect %>
+
+  <%= t.label :song, class: "file-upload" %>
+  <%= t.file_field :song, class: "hidden-file selectedFileForm" %>
 
   <div class="upload-btn upload-btn-form btn btn-default">
     <%= t ".upload_track" %>
   </div>
-  <%= t.label :song, class: "file-upload" do %>
-    <%= t.file_field :song, class: "hidden-file selectedFileForm" %>
-  <% end %>
-
-  <%= t.hidden_field :user_id, value: 1 %>
 
   <%= t.submit t(".upload"), class: "green-btn-header" %>
 <% end %>

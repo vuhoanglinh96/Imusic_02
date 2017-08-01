@@ -1,7 +1,12 @@
 <div class="head">
-  <%= link_to "<img src='http://i.imgur.com/98uf3Xe.png' alt='Mycity'/>".html_safe,
-    "/pages/home"%>
-  <%= link_to "<i class='fa fa-plus'></i>".html_safe, "#",
-    class: "ad green-btn-header", "data-toggle" => "modal", "data-target" => "pl"%>
+  <%= link_to "/pages/home", method: :get do %>
+    <img src="http://i.imgur.com/98uf3Xe.png" alt="Mycity"/>
+  <% end %>
+  <% if current_user %>
+    <%= link_to "#",
+      class: "ad green-btn-header", "data-toggle": "modal", "data-target": "pl" do %>
+      <i class="fa fa-plus"></i>
+    <% end %>
+  <% end %>
   <input type="text" class="search" placeholder="<%= t '.search' %>">
 </div>

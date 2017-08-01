@@ -2,8 +2,9 @@
 
 <body class="promo">
   <div class="start-descrition option animated fadeInDownBig">
-    <%= link_to "<img src='http://i.imgur.com/8WredZE.png' alt=''>".html_safe,
-      "#", class: "start-logo" %>
+    <%= link_to "#", class: "start-logo", method: :get do %>
+      <img src="http://i.imgur.com/8WredZE.png" alt="">
+    <% end %>
     <h1><%= t ".welcome" %><span></span></h1>
     <span><%= t ".discover" %></span>
     <div class="search-promo">
@@ -17,7 +18,8 @@
       </div>
     </div>
     <div class="btns">
-      <%= link_to t(".getstart"), "/pages/home", class: "green" %>
+      <%= link_to t(".getstart"), new_user_registration_path,
+        class: "green", method: :get %>
       <button class="white-border login"><%= t ".login" %></button>
     </div>
     <%= render "shared/login_form" %>

@@ -2,10 +2,15 @@
   <div class="place-form login-form">
     <i class="fa fa-times close-window closeau"></i>
     <h3><%= t ".login" %><span></span></h3>
-    <form>
-      <label><%= t ".email" %><input type="email"></label>
-      <label><%= t ".password" %><input type="password"></label>
-      <% link_to t(".login"), "#", class: "btn btn-success" %>
-    </form>
+    <%= form_for resource, as: resource_name,
+      url: session_path(resource_name) do |f| %>
+      <%= f.label :email %>
+      <%= f.email_field :email, autofocus: true %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password, autocomplete: "off" %>
+
+      <%= f.submit t(".login"), class: "btn btn-success log-btn" %>
+    <% end %>
   </div>
 </div>

@@ -3,29 +3,15 @@
     <img src="http://i.imgur.com/XaZCBtV.png" alt="">
     <div class="con">
       <h2>
-        <%= link_to track.title, "/pages/track" %>
-        <h4><%= link_to track.user_id, "/pages/artist" %></h4>
+        <%= link_to track.title, track_path(id: track.id), method: :get %>
+        <h4><%= link_to track.uploader_name,
+          users_show_path(id: track.user_id), method: :get %></h4>
       </h2>
       <span>
-        <audio loop id="audio-<%= track.id %>" class="audio" preload="true">
-          <source src="<%= track.song %>">
-          <%= t ".browser_error" %>
-        </audio>
-        <div id="wrapper">
-          <div id="audioplayer-<%= track.id %>" class="audioplayer">
-            <button id="playbutton-<%= track.id %>" class="playbutton play">
-            </button>
-            <span id="start-time-<%=track.id%>" class="start-time"></span>
-            <span id="timeline-<%=track.id%>" class="timeline">
-              <div class="music-line"></div>
-              <div id="playhead-<%=track.id%>" class="playhead"></div>
-            </span>
-            <span id="stop-time-<%=track.id%>" class="stop-time"></span>
-          </div>
-        </div>
+        <%= render "shared/song", track: track %>
       </span>
-      <%= link_to t('.comments').html_safe,
-        "#", class: "comm" %>
+      <%= link_to t(".comments").html_safe,
+        "#", class: "comm", method: :get %>
     </div>
   </div>
 <% end %>
