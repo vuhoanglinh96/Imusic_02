@@ -1,8 +1,7 @@
 <% provide :title, full_title(t(".title")) %>
 
 <body>
-  <%= render "shared/swipe", track: @user_support.track,
-    genres_map: @user_support.genres_map %>
+  <%= render "shared/swipe", track: @var.track, genres_map: @var.genres_map %>
   <div class="container contant">
     <div class="row">
       <div class="site-overlay"></div>

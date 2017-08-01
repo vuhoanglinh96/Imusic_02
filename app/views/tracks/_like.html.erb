@@ -1,0 +1,4 @@
+<%= form_for like, html: {class: "like-form"}, remote: :true do |f| %>
+  <div><%= f.hidden_field :track_id, value: track.id %></div>
+  <%= f.submit t(".like"), class: "like-button" %>
+<% end %>

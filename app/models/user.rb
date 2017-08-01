@@ -24,4 +24,16 @@ class User < ApplicationRecord
 
   validates :name, presence: true,
     length: {maximum: Settings.validates.users.name.maximum}
+
+  def like_track track
+    track_interested << track
+  end
+
+  def unlike_track track
+    track_interested.delete track
+  end
+
+  def like_track? track
+    track_interested.include? track
+  end
 end

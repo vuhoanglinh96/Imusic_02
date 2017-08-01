@@ -17,4 +17,12 @@ class Supports::TrackSupport
     User.find_by(id: track.user_id).tracks
         .where.not(id: id).get_random.take_three
   end
+
+  def like
+    user.likes.build
+  end
+
+  def unlike
+    user.likes.find_by like_object_id: track.id
+  end
 end

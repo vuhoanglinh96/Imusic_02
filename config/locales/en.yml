@@ -109,6 +109,12 @@ en:
     update:
       find_failed: "Can't find track"
 
+    like:
+      like: "Like"
+
+    unlike:
+      unlike: "Unlike"
+
   users:
     sessions:
       new:

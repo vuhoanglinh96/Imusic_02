@@ -1005,7 +1005,6 @@ a:hover {
     display: none;
   }
 
-
   .upload-btn {
     background: $cof9f9f9;
     border: 1px solid $coccc;
@@ -2589,5 +2588,49 @@ a:hover {
   padding-top: 20%;
   position: relative;
   width: 100%;
+}
+
+.like-unlike {
+  margin: 7px 0;
+
+  .like-form {
+    div {
+      display: none;
+    }
+
+    .like-button {
+      background-color: $co97c900;
+      color: $cofff;
+      margin: auto 60px;
+      transition: .3s;
+      width: 200px;
+
+      &:hover {
+        background-color: $cofff;
+        color: $co97c900;
+        transition: .3s;
+      }
+    }
+  }
+
+  .unlike-form {
+    div {
+      display: none;
+    }
+
+    .unlike-button {
+      background-color: $cof3;
+      color: $co97c900;
+      margin: auto 60px;
+      transition: .3s;
+      width: 200px;
+
+      &:hover {
+        background-color: $cofff;
+        color: $co97c900;
+        transition: .3s;
+      }
+    }
+  }
 }
 // scss-lint:enable SelectorDepth, NestingDepth

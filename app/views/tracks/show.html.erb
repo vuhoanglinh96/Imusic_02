@@ -83,8 +83,8 @@
         </div>
 
         <div class="share-block">
-          <div><%= link_to t(".share"), "#", class: "green-button",
-            method: :get %></div>
+          <%= render "tracks/like_form", track: @track,
+            like: @track_support.like, unlike: @track_support.unlike %>
         </div>
 
         <div class="reviews">

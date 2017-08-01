@@ -1,0 +1,4 @@
+$('.like-unlike').html(
+  '<%= j render "tracks/like", like: @like, track: @track %>'
+);
+$('.num-like').html('<%= @track.likes.count %>');

@@ -1,0 +1,4 @@
+<%= form_for unlike, remote: :true, html:
+  {class: "unlike-form", method: :delete} do |f| %>
+  <%= f.submit t(".unlike"), class: "unlike-button" %>
+<% end %>

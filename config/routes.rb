@@ -11,4 +11,5 @@ Rails.application.routes.draw do
 
   resources :tracks, except: [:index, :edit, :destroy]
   resources :users, only: :show
+  resources :likes, only: [:create, :destroy]
 end

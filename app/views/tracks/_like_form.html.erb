@@ -1,0 +1,9 @@
+<div class="like-unlike">
+  <% if current_user %>
+    <% if current_user.like_track? track %>
+      <%= render "tracks/unlike", unlike: unlike %>
+    <% else %>
+      <%= render "tracks/like", like: like, track: track %>
+    <% end %>
+  <% end %>
+</div>
