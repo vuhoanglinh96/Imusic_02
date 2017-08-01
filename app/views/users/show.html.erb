@@ -1,0 +1,99 @@
+<% provide :title, full_title(t(".title")) %>
+
+<body>
+  <%= render "shared/swipe", track: @user_support.track,
+    genres_map: @user_support.genres_map %>
+  <div class="container contant">
+    <div class="row">
+      <div class="site-overlay"></div>
+
+      <div class="col-md-3 mobile-none">
+        <div class="user-avatar">
+          <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="#">
+          <span><%= @user.name %></span>
+        </div>
+        <div class="user-btn">
+          <%= link_to t(".follow"), "#", class: "btn btn-success", method: :get %>
+        </div>
+
+        <div class="user-friends">
+          <h4><%= t ".followers" %></h4>
+          <div class="users-group">
+            <% 6.times do |n| %>
+              <%= link_to "#", class: "user-avatars", method: :get do %>
+                <div class="user-go"><i class="fa fa-link"></i></div>
+                <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+            <% end %>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-9 basic vp">
+        <%= render "shared/header" %>
+        <h1><%= @user.name %></h1>
+
+        <div class="reviews">
+          <div class="tabbable" id="tabs-89313">
+            <ul class="nav nav-tabs">
+              <li class="active">
+                <%= link_to t(".tracks"), "#panel-355954",
+                  "data-toggle": "tab" %>
+              </li>
+              <li>
+                <%= link_to t(".comments"), "#panel-621042",
+                  "data-toggle": "tab" %>
+              </li>
+            </ul>
+            <div class="tab-content">
+              <div class="tab-pane active" id="panel-355954">
+                <h4><%= t ".tracks" %></h4>
+
+                  <% @user.tracks.each do |track| %>
+                    <div class="rev">
+                      <div class="user">
+                        <%= link_to users_show_path(id: track.user_id),
+                          method: :get do %>
+                          <img src="http://i.imgur.com/XaZCBtV.png" alt="">
+                        <% end %>
+                      </div>
+                      <div class="texts">
+                        <div class="head-rev">
+                          <%= link_to track.title, "#", method: :get %>
+                          <span><%= track.created_at %></span>
+                        </div>
+                        <div class="text-rev">
+                          <%= render "shared/song", track: track %>
+                        </div>
+                      </div>
+                    </div>
+                  <% end %>
+                <%= link_to t(".load"), "#", class: "more-btn", method: :get %>
+              </div>
+              <div class="tab-pane" id="panel-621042">
+                <h4><%= t ".comments" %></h4>
+                <div class="rev">
+                  <div class="user">
+                    <%= link_to "#", class: "user-avatars", method: :get do %>
+                      <div class="user-go"><i class="fa fa-link"></i></div>
+                      <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
+                    <% end %>
+                  </div>
+                  <div class="texts">
+                    <div class="head-rev">
+                      <%= link_to t(".title"), "#", method: :get %>
+                      <span><%= t ".title" %></span>
+                    </div>
+                    <div class="text-rev">
+                      <%= t ".title" %>
+                    </div>
+                  </div>
+                </div>
+                <%= link_to t(".load"), "#", class: "more-btn", method: :get %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

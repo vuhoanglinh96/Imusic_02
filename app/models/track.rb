@@ -16,4 +16,6 @@ class Track < ApplicationRecord
   validates :user_id, presence: true, allow_nil: true
   validates :genre, presence: true
   validates :image, presence: true, allow_nil: true
+
+  delegate :name, to: :uploader, prefix: :uploader, allow_nil: true
 end

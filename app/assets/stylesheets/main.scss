@@ -838,7 +838,6 @@ a:hover {
   }
 }
 
-
 .open-side {
   float: left;
   font-size: 21px;
@@ -922,79 +921,90 @@ a:hover {
   label {
     display: block;
     font-size: 11px;
-    margin: 20px 0;
+    margin: 10px 0;
     padding: 0 30px;
     text-transform: uppercase;
+  }
 
-    input {
-      background: $cof9f9f9;
-      border: 1px solid $coddd;
-      border-radius: 3px;
-      display: block;
-      font-size: 16px;
-      font-weight: 300;
-      height: 44px;
+  input {
+    background: $co95c800;
+    border: 1px solid $black;
+    border-radius: 3px;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    height: 71px;
+    margin: 0;
+    margin-top: 18px;
+    padding: 20px;
+    width: 100%;
+
+    &:hover {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      margin: 0;
       margin-top: 18px;
-      padding: 0 20px;
+      padding: 20px;
       width: 100%;
-
-      &:focus {
-        background: $cofff;
-        border: 1px solid $co7ccb18;
-        color: $co7ccb18;
-        font-size: 16px;
-        font-weight: 300;
-        outline: none;
-      }
-
-      select {
-        display: block;
-        height: 30px;
-        margin-top: 10px;
-        width: 100%;
-      }
     }
 
-    textarea {
-      background: $cof9f9f9;
-      border: 1px solid $coddd;
-      border-radius: 3px;
-      display: block;
+    &:focus {
+      background: $cofff;
+      border: 1px solid $co7ccb18;
+      color: $co7ccb18;
       font-size: 16px;
       font-weight: 300;
-      height: 40px;
-      margin-top: 10px;
-      padding: 0 20px;
-      width: 100%;
-
-      &:focus {
-        background: $cofff;
-        border: 1px solid $co7ccb18;
-        color: $co7ccb18;
-        font-size: 16px;
-        font-weight: 300;
-        outline: none;
-      }
-
-      select {
-        display: block;
-        height: 30px;
-        margin-top: 10px;
-        width: 100%;
-      }
+      outline: none;
     }
 
     select {
       display: block;
-      height: 40px;
+      height: 30px;
       margin-top: 10px;
       width: 100%;
     }
+  }
 
-    .hidden-file {
-      display: none;
+  textarea {
+    background: $cof9f9f9;
+    border: 1px solid $coddd;
+    border-radius: 3px;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    height: 40px;
+    margin: 10px 30px;
+    padding: 0 20px;
+    width: 80%;
+
+    &:focus {
+      background: $cofff;
+      border: 1px solid $co7ccb18;
+      color: $co7ccb18;
+      font-size: 16px;
+      font-weight: 300;
+      outline: none;
+    }
+
+    select {
+      display: block;
+      height: 30px;
+      margin-top: 10px;
+      width: 100%;
     }
   }
+
+  select {
+    display: block;
+    height: 40px;
+    margin: 20px 30px;
+    width: 80%;
+  }
+
+  .hidden-file {
+    display: none;
+  }
+
 
   .upload-btn {
     background: $cof9f9f9;
@@ -1028,44 +1038,26 @@ a:hover {
       width: 100%;
     }
   }
-
-  input {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    margin: 0;
-    margin-top: 18px;
-    padding: 20px;
-    width: 100%;
-
-    &:hover {
-      border-top-left-radius: 0;
-      border-top-right-radius: 0;
-      margin: 0;
-      margin-top: 18px;
-      padding: 20px;
-      width: 100%;
-    }
-  }
 }
 
 .row {
   label {
     display: inline;
+  }
 
-    input,
-    textarea,
-    select,
-    .uneditable-input {
-      background: $cof9f9f9;
-      border: 1px solid $cobbb;
-      border-radius: 3px;
-      box-sizing: border-box;
-      display: block;
-      font-weight: 400;
-      height: 40px;
-      margin-bottom: 15px;
-      width: 100%;
-    }
+  input,
+  textarea,
+  select,
+  .uneditable-input {
+    background: $cof9f9f9;
+    border: 1px solid $cobbb;
+    border-radius: 3px;
+    box-sizing: border-box;
+    display: block;
+    font-weight: 400;
+    height: 40px;
+    margin-bottom: 15px;
+    width: 100%;
   }
 
   .hidden-file {
@@ -1087,6 +1079,7 @@ a:hover {
   }
 
   .green-btn-header {
+    background-color: $co97c900;
     box-sizing: border-box;
     margin: 15px auto;
     width: 100%;
@@ -1096,17 +1089,41 @@ a:hover {
 .login-form {
   height: 400px;
 
-  .log-btn i {
-    padding: 0 10px 0 0;
+  input,
+  input:hover {
+    background: $cof9f9f9;
+    border: 1px solid $coddd;
+    border-radius: 3px;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    height: 40px;
+    margin: 10px 30px;
+    padding: 0 20px;
+    width: 80%;
   }
-}
 
-.login-form .log-btn,
-.login-form .log-btn:hover {
-  border-radius: 3px;
-  margin: 10px 30px;
-  padding: 10px;
-  width: 240px;
+  .log-btn {
+    background-color: $co7ccb18;
+    border-radius: 3px;
+    font-family: 'Roboto', sans-serif;
+    margin: 30px;
+    padding: 10px;
+    width: 240px;
+
+    i {
+      padding: 0 10px 0 0;
+    }
+  }
+
+  .log-btn:hover {
+    background-color: $cofff;
+    border-radius: 3px;
+    color: $co7ccb18;
+    margin: 30px;
+    padding: 10px;
+    width: 240px;
+  }
 }
 
 .none {
