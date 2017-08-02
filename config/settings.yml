@@ -9,3 +9,5 @@ validates:
   users:
     name:
       maximum: 50
+
+take_three: 3

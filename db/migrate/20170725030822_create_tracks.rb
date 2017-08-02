@@ -8,7 +8,7 @@ class CreateTracks < ActiveRecord::Migration[5.0]
       t.string :song
       t.string :description
       t.string :image
-      t.integer :view
+      t.integer :view, default: 0
 
       t.timestamps
     end

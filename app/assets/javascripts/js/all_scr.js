@@ -29,14 +29,14 @@ $(document).ready(function () {
   $('.selectedFileForm').on('change', function () {
     'use strict';
     var filepath = $('.selectedFileForm').val();
-    var filename = filepath.replace(/^.*\\/, "");
+    var filename = filepath.replace(/^.*\\/, '');
     $('.upload-btn-form').text(filename);
   })
 
   $('.selectedFile').on('change', function () {
     'use strict';
     var filepath = $('.selectedFile').val();
-    var filename = filepath.replace(/^.*\\/, "");
+    var filename = filepath.replace(/^.*\\/, '');
     $('.upload-btn-notform').text(filename);
   })
 

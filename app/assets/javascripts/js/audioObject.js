@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", theDOMHasLoaded);
+document.addEventListener('DOMContentLoaded', theDOMHasLoaded);
 window.setInterval(printTime,1);
 window.setInterval(currentPlay, 1);
 
@@ -14,25 +14,28 @@ function AudioObject(audio, duration) {
 }
 
 AudioObject.prototype.bindAudioPlayer = function (num) {
-  this.audioplayer = document.getElementById("audioplayer-" + num);
-  this.playbutton = document.getElementById("playbutton-" + num);
-  this.timeline = document.getElementById("timeline-" + num);
-  this.playhead = document.getElementById("playhead-" + num);
-  this.timelineWidth = this.timeline.offsetWidth - this.playhead.offsetWidth
+  this.audioplayer = document.getElementById('audioplayer-' + num);
+  this.playbutton = document.getElementById('playbutton-' + num);
+  this.timeline = document.getElementById('timeline-' + num);
+  this.playhead = document.getElementById('playhead-' + num);
+  this.view = parseInt(
+    document.getElementById('view-' + num).getAttribute('data-value')
+  );
+  this.timelineWidth = this.timeline.offsetWidth - this.playhead.offsetWidth;
 }
 
 AudioObject.prototype.addEventListeners = function () {
   this.audio.addEventListener(
-    "timeupdate", AudioObject.prototype.timeUpdate, false
+    'timeupdate', AudioObject.prototype.timeUpdate, false
   );
   this.audio.addEventListener(
-    "durationchange", AudioObject.prototype.durationChange, false
+    'durationchange', AudioObject.prototype.durationChange, false
   );
   this.timeline.addEventListener(
-    "click", AudioObject.prototype.timelineClick, false
+    'click', AudioObject.prototype.timelineClick, false
   );
   this.playbutton.addEventListener(
-    "click", AudioObject.prototype.pressPlay, false
+    'click', AudioObject.prototype.pressPlay, false
   );
   this.playhead.addEventListener(
     'mousedown', AudioObject.prototype.mouseDown, false
@@ -41,12 +44,12 @@ AudioObject.prototype.addEventListeners = function () {
 }
 
 function populateAudioList() {
-  var audioElements = document.getElementsByClassName("audio");
+  var audioElements = document.getElementsByClassName('audio');
   for (i = 1; i <= audioElements.length; i++) {
     audioList.push(
       new AudioObject(audioElements[i-1], 0)
     );
-    num = audioList[i-1].id.replace("audio-", "")
+    num = audioList[i-1].id.replace('audio-', '')
     audioList[i-1].bindAudioPlayer(num);
     audioList[i-1].addEventListeners();
   }
@@ -75,16 +78,24 @@ AudioObject.prototype.play = function () {
   if (this == playingAudio) {
     playingAudio = null;
     this.audio.pause();
-    changeClass(this.playbutton, "playbutton play");
+    changeClass(this.playbutton, 'playbutton play');
+    clearTimeout(myVar);
   }
   else {
     if (playingAudio != null) {
       playingAudio.audio.pause();
-      changeClass(playingAudio.playbutton, "playbutton play");
+      changeClass(playingAudio.playbutton, 'playbutton play');
+      clearTimeout(myVar);
     }
     this.audio.play();
     playingAudio = this;
-    changeClass(this.playbutton, "playbutton pause");
+    changeClass(this.playbutton, 'playbutton pause');
+    var ao = audioList[getAudioListIndex(this.id)];
+    var time = ao.duration * 1000 / 4;
+    myVar = setTimeout(function(){
+      id = parseInt(ao.id.replace('audio-', ''));
+      document.getElementById('view-' + id).click();
+    }, time);
   }
 }
 
@@ -124,24 +135,24 @@ function mouseUp(e) {
 
 AudioObject.prototype.moveplayhead = function (e) {
   var ao = audioList[getAudioListIndex(onplayhead)];
-  var newMargLeft = e.pageX - ao.timeline.offsetLeft;
+  var newMargLeft = e.clientX - getPosition(ao.timeline);
   if (newMargLeft >= 0 && newMargLeft <= ao.timelineWidth) {
-    document.getElementById(onplayhead).style.marginLeft = newMargLeft + "px";
+    document.getElementById(onplayhead).style.marginLeft = newMargLeft + 'px';
   }
   if (newMargLeft < 0) {
-    playhead.style.marginLeft = "0px";
+    playhead.style.marginLeft = '0px';
   }
   if (newMargLeft > ao.timelineWidth) {
-    playhead.style.marginLeft = ao.timelineWidth + "px";
+    playhead.style.marginLeft = ao.timelineWidth + 'px';
   }
 }
 
 AudioObject.prototype.timeUpdate = function () {
   var ao = audioList[getAudioListIndex(this.id)];
   var playPercent = ao.timelineWidth * (ao.audio.currentTime / ao.duration);
-  ao.playhead.style.marginLeft = playPercent + "px";
+  ao.playhead.style.marginLeft = playPercent + 'px';
   if (ao.audio.currentTime == ao.duration) {
-    changeClass(ao.playbutton, "playbutton play");
+    changeClass(ao.playbutton, 'playbutton play');
     ao.audio.currentTime = 0;
     ao.audio.pause();
     playingAudio = null;
@@ -149,41 +160,41 @@ AudioObject.prototype.timeUpdate = function () {
 }
 
 function printTime() {
-  var audioElements = document.getElementsByClassName("audio");
+  var audioElements = document.getElementsByClassName('audio');
   for (i = 1; i <= audioElements.length; i++) {
     var ao = audioList[i-1];
-    var num = audioList[i-1].id.replace("audio-", "");
+    var num = audioList[i-1].id.replace('audio-', '');
     duration = parseInt(ao.audio.duration);
     var d = moment.duration(duration, 'seconds');
     var hours = Math.floor(d.asHours());
     var mins = Math.floor(d.asMinutes()) - hours * 60;
     var secs = Math.floor(d.asSeconds()) - hours * 3600 - mins * 60;
     if (hours != 0) {
-      document.getElementById("stop-time-" + num).innerHTML =
+      document.getElementById('stop-time-' + num).innerHTML =
         hours + ':' + mins + ':' + secs;
     }
     else
-      document.getElementById("stop-time-" + num).innerHTML =
+      document.getElementById('stop-time-' + num).innerHTML =
         mins + ':' + secs;
   }
 }
 
 function currentPlay() {
-  var audioElements = document.getElementsByClassName("audio");
+  var audioElements = document.getElementsByClassName('audio');
   for (i = 1; i <= audioElements.length; i++) {
     var ao = audioList[i-1];
-    var num = audioList[i-1].id.replace("audio-", "");
+    var num = audioList[i-1].id.replace('audio-', '');
     duration = parseInt(ao.audio.currentTime);
     var d = moment.duration(duration, 'seconds');
     var hours = Math.floor(d.asHours());
     var mins = Math.floor(d.asMinutes()) - hours * 60;
     var secs = Math.floor(d.asSeconds()) - hours * 3600 - mins * 60;
     if (hours != 0) {
-      document.getElementById("start-time-" + num).innerHTML =
+      document.getElementById('start-time-' + num).innerHTML =
         hours + ':' + mins + ':' + secs;
     }
     else
-      document.getElementById("start-time-" + num).innerHTML =
+      document.getElementById('start-time-' + num).innerHTML =
         mins + ':' + secs;
   }
 }
@@ -196,8 +207,12 @@ function getAudioListIndex(id) {
   return componentDict[id];
 }
 
-function clickPercent(e, timeline, timelineWidth) {
-  return (e.pageX - timeline.offsetLeft) / timelineWidth;
+function clickPercent(event, timeline, timelineWidth) {
+  return (event.clientX - getPosition(timeline)) / timelineWidth;
+}
+
+function getPosition(el) {
+  return el.getBoundingClientRect().left;
 }
 
 function theDOMHasLoaded(e) {

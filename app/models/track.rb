@@ -1,4 +1,6 @@
 class Track < ApplicationRecord
+  ATTRIBUTES = %i(title description genre_id song user_id view).freeze
+
   belongs_to :genre
   belongs_to :uploader, class_name: User.name, foreign_key: "user_id"
 
@@ -17,5 +19,10 @@ class Track < ApplicationRecord
   validates :genre, presence: true
   validates :image, presence: true, allow_nil: true
 
+  scope :get_random, ->{order "RANDOM()"}
+  scope :take_three, ->{take Settings.take_three}
+  scope :desc, ->{order created_at: :desc}
+
   delegate :name, to: :uploader, prefix: :uploader, allow_nil: true
+  delegate :name, to: :genre, prefix: :genre, allow_nil: true
 end
