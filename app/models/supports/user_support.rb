@@ -12,4 +12,8 @@ class Supports::UserSupport
   def track
     user.tracks.build if user
   end
+
+  def genres
+    Genre.all
+  end
 end

@@ -1,8 +1,8 @@
 <% provide :title, full_title(t(".title")) %>
 
 <body>
-  <%= render "shared/swipe", track: @user_support.track,
-    genres_map: @user_support.genres_map %>
+  <%= render "shared/swipe", track: @type_support.track,
+    genres_map: @type_support.genres_map %>
   <div class="container contant">
     <div class="row">
       <div class="site-overlay"></div>
@@ -10,13 +10,12 @@
         <%= render "shared/header" %>
         <%= render "shared/flash" %>
         <div class="place-li-cont">
-          <h1><%= t ".welcome" %> <%= current_user.name %></h1>
+          <h1><%= t ".top_listen" %></h1>
           <p class="lead"><%= t ".enjoy" %></p>
           <ul class="blog-cat">
-            <% @user_support.genres.each do |g| %>
+            <% @type_support.genres.each do |g| %>
               <li>
-                <%= link_to genre_path(g),
-                  class: "showplace", method: :get do %>
+                <%= link_to genre_path(g), class: "showplace" do %>
                   <i class="fa fa-music"></i> <%= g.name %>
                 <% end %>
               </li>
@@ -24,10 +23,10 @@
           </ul>
 
           <div class="audio-players">
-            <%= render "shared/track", track_index: @track_index %>
+            <%= render "shared/track", track_index: @track_type %>
           </div>
         </div>
-        <%= link_to t(".load"), "#", class: "more-btn", method: :get %>
+        <%= link_to t(".load"), "#", class: "more-btn" %>
       </div>
     </div>
   </div>

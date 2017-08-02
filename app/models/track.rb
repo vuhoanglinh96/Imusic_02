@@ -22,6 +22,7 @@ class Track < ApplicationRecord
   scope :get_random, ->{order "RANDOM()"}
   scope :take_three, ->{take Settings.take_three}
   scope :desc, ->{order created_at: :desc}
+  scope :top_listen, ->{order view: :desc}
 
   delegate :name, to: :uploader, prefix: :uploader, allow_nil: true
   delegate :name, to: :genre, prefix: :genre, allow_nil: true
