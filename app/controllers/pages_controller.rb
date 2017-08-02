@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_action :all_genres
   def show
-    @track_index = Track.all
+    @track_index = Track.all.desc
     if valid_page?
       render current_user ? "pages/home" : "pages/index"
     else

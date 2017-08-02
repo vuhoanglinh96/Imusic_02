@@ -15,17 +15,6 @@
         <div class="user-btn">
           <%= link_to t(".follow"), "#", class: "btn btn-success", method: :get %>
         </div>
-
-        <div class="user-friends">
-          <h4><%= t ".followers" %></h4>
-          <div class="users-group">
-            <% 6.times do |n| %>
-              <%= link_to "#", class: "user-avatars", method: :get do %>
-                <div class="user-go"><i class="fa fa-link"></i></div>
-                <img src="http://i.imgur.com/8Hob1Ge.jpg" alt="">
-            <% end %>
-          </div>
-        </div>
       </div>
 
       <div class="col-md-9 basic vp">
@@ -51,14 +40,15 @@
                   <% @user.tracks.each do |track| %>
                     <div class="rev">
                       <div class="user">
-                        <%= link_to users_show_path(id: track.user_id),
+                        <%= link_to user_path(track.uploader),
                           method: :get do %>
                           <img src="http://i.imgur.com/XaZCBtV.png" alt="">
                         <% end %>
                       </div>
                       <div class="texts">
                         <div class="head-rev">
-                          <%= link_to track.title, "#", method: :get %>
+                          <%= link_to track.title,
+                            track_path(track.uploader), method: :get %>
                           <span><%= track.created_at %></span>
                         </div>
                         <div class="text-rev">

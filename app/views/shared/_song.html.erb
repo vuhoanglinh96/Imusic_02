@@ -2,15 +2,20 @@
   <source src="<%= track.song %>">
   <%= t ".browser_error" %>
 </audio>
-<div id="wrapper">
+<div class="wrapper">
   <div id="audioplayer-<%= track.id %>" class="audioplayer">
     <button id="playbutton-<%= track.id %>" class="playbutton play">
     </button>
-    <span id="start-time-<%=track.id%>" class="start-time"></span>
-    <span id="timeline-<%=track.id%>" class="timeline">
+    <span id="start-time-<%= track.id %>" class="start-time"></span>
+    <div id="timeline-<%= track.id %>" class="timeline">
+      <div id="playhead-<%= track.id %>" class="playhead"></div>
       <div class="music-line"></div>
-      <div id="playhead-<%=track.id%>" class="playhead"></div>
-    </span>
-    <span id="stop-time-<%=track.id%>" class="stop-time"></span>
+    </div>
+    <span id="stop-time-<%= track.id %>" class="stop-time"></span>
+    <%= form_tag track_path(track), method: :put,
+      id: "song-#{track.id}", remote: true do |t| %>
+      <%= hidden_field_tag "track[view]", track.view + 1 %>
+      <%= submit_tag "", class: "hidden view", id: "view-#{track.id}" %>
+    <% end %>
   </div>
 </div>

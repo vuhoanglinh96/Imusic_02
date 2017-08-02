@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   get "/pages/:page" => "pages#show"
 
-  resources :tracks, only: [:new, :create, :show]
+  resources :tracks, except: [:index, :edit, :destroy]
   resources :users, only: :show
 end
